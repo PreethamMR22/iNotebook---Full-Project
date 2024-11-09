@@ -2,7 +2,7 @@ import { stringify } from 'ajv';
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";  
 
-const Login = () => {
+const Login = (props) => {
 
 const [credential,setCredential]=useState({email:"",password:""});
 let navigate = useNavigate();
@@ -28,27 +28,24 @@ const handleSubmit=async(e)=> {
     if(json.success) {
         //save the token of the user and then redirect
         localStorage.setItem('token',json.Token);
-        navigate.push("/home");
+        props.showAlert("Logged in Successfully","success");
+        navigate("/");
     }
-    else alert("Invalid credential");
+    else props.showAlert("Invalid Credentials","danger");
 }
   return (
     <>
         <form onSubmit={handleSubmit}>
-    <div className="form-group">
+    <div className="form-group my-3">
     <label htmlFor="email">Email address</label>
     <input type="email" className="form-control" onChange={handleChange} id="email" name="password" aria-describedby="emailHelp" placeholder="Enter email" />
-    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
+     </div>
   <div className="form-group">
     <label htmlFor="password">Password</label>
     <input type="password" className="form-control" onChange={handleChange}  id="password" name="password" placeholder="Password" />
   </div>
-  <div className="form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-    <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" className="btn btn-primary" >Submit</button>
+
+  <button type="submit" className="btn btn-primary my-3 " >Submit</button>
 </form>
 
 
