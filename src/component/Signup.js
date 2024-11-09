@@ -50,6 +50,8 @@ const handleSubmit=async(e)=> {
 
     
   return (
+<>
+    <h2 className="my-3">Create a new Account to use iNoteBook,</h2>
     <div className="container">
         
 <form onSubmit={handleSubmit}>
@@ -76,6 +78,7 @@ const handleSubmit=async(e)=> {
 
       
     </div>
+    </>
   )
 }
 

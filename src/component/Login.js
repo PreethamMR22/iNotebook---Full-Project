@@ -35,6 +35,7 @@ const handleSubmit=async(e)=> {
 }
   return (
     <>
+    <h2 className='my-3'>Login to continue to iNoteBook,</h2>
         <form onSubmit={handleSubmit}>
     <div className="form-group my-3">
     <label htmlFor="email">Email address</label>

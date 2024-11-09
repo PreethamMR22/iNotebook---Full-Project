@@ -123,7 +123,7 @@ const getNotes=async ()=> {
       method:"GET",
       headers: {
         'Content-Type':'application/json',
-        "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjcyNjY4ZWMxMTQ0Y2VjMmE1ZGRkNWI1In0sImlhdCI6MTczMDU3MDUyMn0.bl6mmf2V3-22173Q9rlq17dN8Hhr8kKK7_gidrLuPhE"
+        "auth-token":localStorage.getItem('token'),
       },
       
     });
@@ -144,7 +144,7 @@ const addNote=async (title,description,tag)=> {
       method:"POST",
       headers: {
         'Content-Type':'application/json',
-        "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjcyNjY4ZWMxMTQ0Y2VjMmE1ZGRkNWI1In0sImlhdCI6MTczMDU3MDUyMn0.bl6mmf2V3-22173Q9rlq17dN8Hhr8kKK7_gidrLuPhE"
+        "auth-token": localStorage.getItem('token')
       },
       body:JSON.stringify({title,description,tag})
     });
@@ -159,13 +159,14 @@ setNotes(notes.concat(note));
 //edit note
 const editNote= async (id,title,description,tag)=> {
   //API CALL
-const response=await fetch(`${host}/api/notes/updatenote/${id}`, {
-  method:"PUT",
+const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
+  method: "PUT",
   headers: {
-    'Content-Type':'application/json',
-    "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjcyNjY4ZWMxMTQ0Y2VjMmE1ZGRkNWI1In0sImlhdCI6MTczMDU3MDUyMn0.bl6mmf2V3-22173Q9rlq17dN8Hhr8kKK7_gidrLuPhE"
+    "Content-Type": "application/json",
+    "auth-token":
+      localStorage.getItem('token'),
   },
-  body:JSON.stringify({title,description,tag})
+  body: JSON.stringify({ title, description, tag }),
 });
 const json= await response.json();
 
@@ -193,7 +194,7 @@ const deleteNote=async (id)=> {
     method:"DELETE",
     headers: {
       'Content-Type':'application/json',
-      "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjcyNjY4ZWMxMTQ0Y2VjMmE1ZGRkNWI1In0sImlhdCI6MTczMDU3MDUyMn0.bl6mmf2V3-22173Q9rlq17dN8Hhr8kKK7_gidrLuPhE"
+      "auth-token": localStorage.getItem('token')
     },
    
   });
