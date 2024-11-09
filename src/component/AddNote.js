@@ -63,7 +63,7 @@ const onChangeHandler=(event)=> {
             name="tag"
             onChange={onChangeHandler}
             minLength={5} required
-            value={note.tag}
+            value={note.tag}  
           />
         </div>
        
