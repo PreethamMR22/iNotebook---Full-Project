@@ -13,7 +13,7 @@ const Navbar = () => {
     <div>
    <nav className="navbar navbar-expand-lg  navbar-dark bg-primary">
   <div className="container-fluid">
-    <Link className="navbar-brand" to="google.com">Navbar</Link>
+    <Link className="navbar-brand" to="google.com">iNoteBook</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -25,20 +25,8 @@ const Navbar = () => {
         <li className="nav-item">
           <Link className={`nav-link ${location.pathname===`/about`?"active":""}`} to="/about">About</Link>
         </li>
-        <li className="nav-item dropdown">
-          <Link className="nav-link dropdown-toggle" to="google.com" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </Link>
-          <ul className="dropdown-menu">
-            <li><Link className="dropdown-item" to="google.com">Action</Link></li>
-            <li><Link className="dropdown-item" to="google.com">Another action</Link></li>
-            <li><hr className="dropdown-divider" /></li>
-            <li><Link className="dropdown-item" to="google.com">Something else here</Link></li>
-          </ul>
-        </li>
-        <li className="nav-item">
-          <Link className="nav-link disabled" aria-disabled="true">Disabled</Link>
-        </li>
+       
+      
       </ul>
      
      

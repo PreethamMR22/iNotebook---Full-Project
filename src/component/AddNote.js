@@ -18,6 +18,7 @@ const onChangeHandler=(event)=> {
 
   return (
     <div>
+      <img src="src/photo/aboutPic.png" alt="" />
       <h1>Add a note</h1>
 
       {/* //form */}
